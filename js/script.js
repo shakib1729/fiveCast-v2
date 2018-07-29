@@ -110,12 +110,18 @@ function w(latitude,longitude){
             const tomEmoji = getEmoji(tomorrow.weather_state_abbr);
             const datEmoji = getEmoji(dayAfterTomorrow.weather_state_abbr);
              t.classList.remove("r")
-             t.classList.add("animate-tada");
-
+             t.classList.add('animate-tada');
+             document.querySelectorAll('#tertiary div').forEach(e => e.classList.add('animate-bounceInDown'));
              const newline = "\r\n";
-             // const nbsp = "\u00a0";
+
+             if(data.title.includes(' ')) {
+             	const [first,last] = data.title.split(' ');
+            document.querySelector('#tertiary .location').textContent =`${first}${newline}${last}`;
+
+             }
+             else    document.querySelector('#tertiary .location').textContent =`${data.title}`;
             
-            document.querySelector('#tertiary .location').textContent =`${data.title}`;
+         
             tod.textContent = `Min Temp: ${today.min_temp.toFixed(2)}°C ${newline} Max Temp: ${today.max_temp.toFixed(2)}°C ${newline} ${today.weather_state_name}`;
             todEmojiEl.textContent = todEmoji;
             tom.textContent = `Min Temp: ${tomorrow.min_temp.toFixed(2)}°C ${newline} Max Temp: ${tomorrow.max_temp.toFixed(2)}°C ${newline} ${tomorrow.weather_state_name}`;
@@ -124,8 +130,6 @@ function w(latitude,longitude){
             datEmojiEl.textContent = datEmoji;
             document.querySelector('.sunrise span').textContent = sunrise ;
             document.querySelector('.sunset span').textContent = sunset;
-
-               // console.log(`Temperatures today in ${data.title} stay between ${today.min_temp} and ${today.max_temp}.weather conditions ${today.weather_state_name} `);
         });
 
 
