@@ -1,4 +1,5 @@
 # fiveCast-v2
+Completely redeveloped, made fully responsive, using Flexbox 
 
 ![fivecast v2 2](https://user-images.githubusercontent.com/39847281/43361947-06dbd092-92fc-11e8-97a5-bc5e12b3cb13.JPG)
 
